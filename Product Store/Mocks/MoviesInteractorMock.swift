@@ -19,9 +19,7 @@ class MoviesInteractorMock:MoviesInteractorProtocol{
     }
     
     func getData(page: Int, completionHandler: @escaping (MoviesModel?, Error?) -> ()) {
-        
-        
-        
+                
         if !failFetchingData{
             completionHandler(returnedModel,nil)
         }else{

@@ -10,16 +10,82 @@ import XCTest
 final class MoviePresnterTest: XCTestCase {
     
     var moviesPresenter: MoviePresenterImplementation!
-    
-    
-    override func setUpWithError() throws {
+    var interactor:MoviesInteractorMock!
+    var movieView:MovieViewMock!
+
+    override func setUp() {
+        let moviesModel = createMoviesModel()
         
+        movieView = MovieViewMock()
+        interactor = MoviesInteractorMock(failFetchingData: false, returnedModel: moviesModel)
+        moviesPresenter = MoviePresenterImplementation(view: movieView, router: nil, interactor: interactor)
     }
     
-    override func tearDownWithError() throws {
+    
+    override func tearDown() {
         moviesPresenter = nil
     }
     
+    
+    func testPresenterGetData_WithData_CallsFetchDataSuccess(){
+        //Given
+        interactor.failFetchingData = false
+        
+        //when
+        moviesPresenter.getData()
+        
+        //then
+        XCTAssertTrue(movieView.fetchingDataSuccessCalled)
+        XCTAssertFalse(movieView.showErrorCalled)
+    }
+    
+    
+    func testPresenterGetData_WithError_CallsShowError(){
+        
+        //Given
+        interactor.failFetchingData = true
+        
+        //When
+        moviesPresenter.getData()
+        
+        //Then
+        XCTAssertTrue(movieView.showErrorCalled)
+        XCTAssertFalse(movieView.fetchingDataSuccessCalled)
+    }
+    
+    
+    func testPresenterGetData_WithNillResult_CallsNoData(){
+        
+        //Given
+        interactor.failFetchingData = false
+        interactor.returnedModel = nil
+        
+        //When
+        moviesPresenter.getData()
+        
+        //Then
+        XCTAssertTrue(movieView.noDataIsCalled)
+    }
+    
+    
+    func testPresenterGetData_WithEmptyResult_CallsNoData(){
+        
+        //Given
+        let data = createMoviesModelWithEmptyArray()
+        interactor.failFetchingData = false
+        interactor.returnedModel = data
+        
+        //When
+        moviesPresenter.getData()
+        
+        //Then
+        XCTAssertTrue(movieView.noDataIsCalled)
+    }
+    
+}
+
+
+private extension MoviePresnterTest{
     
     func createMoviesModel() -> MoviesModel {
         
@@ -39,72 +105,5 @@ final class MoviePresnterTest: XCTestCase {
         let moviesModel = MoviesModel(status: "true", status_message: "succsess", data: movies)
         
         return moviesModel
-    }
-    
-    func testPresenterGetDataFunctionWithData(){
-        
-        let movieView = MovieViewMock()
-        
-        let moviesModel = createMoviesModel()
-        let interactor = MoviesInteractorMock(failFetchingData: false, returnedModel: moviesModel)
-        
-        moviesPresenter = MoviePresenterImplementation(view: movieView, router: nil, interactor: interactor)
-        
-        moviesPresenter.getData()
-        
-        // TESTING PRESENTER GET data function while interactor return data
-        XCTAssertTrue(movieView.fetchingDataSuccessCalled)
-        XCTAssertFalse(movieView.showErrorCalled)
-    }
-    
-    
-    func testPresenterGetDataFunctionWithError(){
-        
-        let movieView = MovieViewMock()
-        
-        
-        let moviesModel = createMoviesModel()
-        let interactor = MoviesInteractorMock(failFetchingData: false, returnedModel: moviesModel)
-        
-        moviesPresenter = MoviePresenterImplementation(view: movieView, router: nil, interactor: interactor)
-        
-        
-        // TESTING PRESENTER GET data function while interactor return error
-        interactor.returnedModel = nil
-        interactor.failFetchingData = true
-        moviesPresenter.getData()
-        XCTAssertTrue(movieView.showErrorCalled)
-        XCTAssertFalse(movieView.fetchingDataSuccessCalled)
-    }
-    
-    
-    func testPresenterGetDataFunctionWithNilResult(){
-        
-        let movieView = MovieViewMock()
-        
-        let interactor = MoviesInteractorMock(failFetchingData: false, returnedModel: nil)
-        
-        moviesPresenter = MoviePresenterImplementation(view: movieView, router: nil, interactor: interactor)
-        
-        
-        // Testing Presenter getData while there is nil
-        moviesPresenter.getData()
-        XCTAssertTrue(movieView.noDataIsCalled)
-    }
-    
-    func testPresenterGetDataFunctionWithEmptyResult(){
-        
-        let movieView = MovieViewMock()
-        let moviesModel = createMoviesModelWithEmptyArray()
-        
-     
-        let interactor = MoviesInteractorMock(failFetchingData: false, returnedModel: moviesModel)
-        
-        moviesPresenter = MoviePresenterImplementation(view: movieView, router: nil, interactor: interactor)
-        
-        
-        // Testing Presenter getData while there is no data
-        moviesPresenter.getData()
-        XCTAssertTrue(movieView.noDataIsCalled)
     }
 }
