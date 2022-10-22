@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7374C103EDF2D1265EAC0C45 /* Pods_Product_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93BF6351452EEC8003E6682 /* Pods_Product_Store.framework */; };
+		AD09CC6529043F770025B945 /* MoviePresnterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD09CC6429043F770025B945 /* MoviePresnterTest.swift */; };
+		AD09CC6B290442E90025B945 /* MoviesInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD09CC6A290442E90025B945 /* MoviesInteractorMock.swift */; };
 		AD7292FE29015C9D00A78205 /* Neo Sans W23 Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD7292F929015C9C00A78205 /* Neo Sans W23 Light.ttf */; };
 		AD7292FF29015C9D00A78205 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7292FA29015C9C00A78205 /* AppFonts.swift */; };
 		AD72930029015C9D00A78205 /* Neo Sans W23 Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD7292FB29015C9C00A78205 /* Neo Sans W23 Bold.ttf */; };
@@ -46,9 +48,24 @@
 		ADE65403290157780048F03A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE65401290157780048F03A /* Main.storyboard */; };
 		ADE654052901577B0048F03A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE654042901577B0048F03A /* Assets.xcassets */; };
 		ADE654082901577B0048F03A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE654062901577B0048F03A /* LaunchScreen.storyboard */; };
+		ADF94AC129044FC400F8B753 /* MovieViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD09CC67290440DF0025B945 /* MovieViewMock.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AD09CC5F29043EF90025B945 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADE653F0290157770048F03A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADE653F7290157770048F03A;
+			remoteInfo = "Product Store";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		AD09CC5B29043EF90025B945 /* Product StoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Product StoreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD09CC6429043F770025B945 /* MoviePresnterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePresnterTest.swift; sourceTree = "<group>"; };
+		AD09CC67290440DF0025B945 /* MovieViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewMock.swift; sourceTree = "<group>"; };
+		AD09CC6A290442E90025B945 /* MoviesInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInteractorMock.swift; sourceTree = "<group>"; };
 		AD7292F929015C9C00A78205 /* Neo Sans W23 Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neo Sans W23 Light.ttf"; sourceTree = "<group>"; };
 		AD7292FA29015C9C00A78205 /* AppFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		AD7292FB29015C9C00A78205 /* Neo Sans W23 Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neo Sans W23 Bold.ttf"; sourceTree = "<group>"; };
@@ -95,6 +112,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AD09CC5829043EF90025B945 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADE653F5290157770048F03A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -112,6 +136,23 @@
 				D93BF6351452EEC8003E6682 /* Pods_Product_Store.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD09CC5C29043EF90025B945 /* Product StoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD09CC6429043F770025B945 /* MoviePresnterTest.swift */,
+			);
+			path = "Product StoreTests";
+			sourceTree = "<group>";
+		};
+		AD09CC66290440BF0025B945 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				AD09CC67290440DF0025B945 /* MovieViewMock.swift */,
+				AD09CC6A290442E90025B945 /* MoviesInteractorMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		AD7292F729015C8500A78205 /* Utilities */ = {
@@ -374,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				ADE653FA290157780048F03A /* Product Store */,
+				AD09CC5C29043EF90025B945 /* Product StoreTests */,
 				ADE653F9290157780048F03A /* Products */,
 				D51928D4E0517B904ADE1136 /* Pods */,
 				5BE36C5F4CB9B5B4AC5673B7 /* Frameworks */,
@@ -384,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				ADE653F8290157780048F03A /* Product Store.app */,
+				AD09CC5B29043EF90025B945 /* Product StoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -391,6 +434,7 @@
 		ADE653FA290157780048F03A /* Product Store */ = {
 			isa = PBXGroup;
 			children = (
+				AD09CC66290440BF0025B945 /* Mocks */,
 				AD72932F29015E1000A78205 /* Scences */,
 				AD72932E29015D9000A78205 /* Storyboard */,
 				AD72931729015D2B00A78205 /* NetworkLayer */,
@@ -414,6 +458,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AD09CC5A29043EF90025B945 /* Product StoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD09CC6329043EF90025B945 /* Build configuration list for PBXNativeTarget "Product StoreTests" */;
+			buildPhases = (
+				AD09CC5729043EF90025B945 /* Sources */,
+				AD09CC5829043EF90025B945 /* Frameworks */,
+				AD09CC5929043EF90025B945 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD09CC6029043EF90025B945 /* PBXTargetDependency */,
+			);
+			name = "Product StoreTests";
+			productName = "Product StoreTests";
+			productReference = AD09CC5B29043EF90025B945 /* Product StoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ADE653F7290157770048F03A /* Product Store */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADE6540C2901577B0048F03A /* Build configuration list for PBXNativeTarget "Product Store" */;
@@ -443,6 +505,10 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					AD09CC5A29043EF90025B945 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = ADE653F7290157770048F03A;
+					};
 					ADE653F7290157770048F03A = {
 						CreatedOnToolsVersion = 14.0;
 					};
@@ -462,11 +528,19 @@
 			projectRoot = "";
 			targets = (
 				ADE653F7290157770048F03A /* Product Store */,
+				AD09CC5A29043EF90025B945 /* Product StoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AD09CC5929043EF90025B945 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADE653F6290157770048F03A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +602,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AD09CC5729043EF90025B945 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD09CC6529043F770025B945 /* MoviePresnterTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADE653F4290157770048F03A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,8 +620,10 @@
 				AD72932829015D6400A78205 /* AlamofireResponse.swift in Sources */,
 				AD72934929015EFE00A78205 /* MoviePresenter.swift in Sources */,
 				AD72931029015CF100A78205 /* UIViewController.swift in Sources */,
+				ADF94AC129044FC400F8B753 /* MovieViewMock.swift in Sources */,
 				AD72930629015CC200A78205 /* AssetsColor.swift in Sources */,
 				AD7293572901687500A78205 /* MovieDetailsViewController.swift in Sources */,
+				AD09CC6B290442E90025B945 /* MoviesInteractorMock.swift in Sources */,
 				AD7292FF29015C9D00A78205 /* AppFonts.swift in Sources */,
 				AD72932629015D6400A78205 /* CodableInit.swift in Sources */,
 				AD72933329015E3000A78205 /* MoviesModel.swift in Sources */,
@@ -566,6 +650,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AD09CC6029043EF90025B945 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADE653F7290157770048F03A /* Product Store */;
+			targetProxy = AD09CC5F29043EF90025B945 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		ADE65401290157780048F03A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -586,6 +678,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AD09CC6129043EF90025B945 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Product-StoreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Product Store.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Product Store";
+			};
+			name = Debug;
+		};
+		AD09CC6229043EF90025B945 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Product-StoreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Product Store.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Product Store";
+			};
+			name = Release;
+		};
 		ADE6540A2901577B0048F03A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -762,6 +888,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AD09CC6329043EF90025B945 /* Build configuration list for PBXNativeTarget "Product StoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD09CC6129043EF90025B945 /* Debug */,
+				AD09CC6229043EF90025B945 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ADE653F3290157770048F03A /* Build configuration list for PBXProject "Product Store" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

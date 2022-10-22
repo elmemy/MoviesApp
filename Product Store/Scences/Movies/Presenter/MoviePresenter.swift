@@ -27,21 +27,23 @@ protocol MoviePresenter {
     func didSelect(index: Int)
     func isPagination() -> Bool
     func reloadDataFromRefreshControl()
+    
+    var movieModel:[Movie]{get set}
 }
 
 class MoviePresenterImplementation: MoviePresenter {
     
     
     fileprivate weak var view: MovieView?
-    internal let router: MovieRouter
-    internal let interactor : MovieInteractor
+    internal let router: MovieRouter?
+    internal let interactor : MoviesInteractorProtocol
     
-    private var movieModel =  [Movie]()
+    internal var movieModel =  [Movie]()
     private var page: Int = 1
     private var isPaginate = true
     
     
-    init(view: MovieView,router: MovieRouter,interactor:MovieInteractor) {
+    init(view: MovieView,router: MovieRouter?,interactor:MoviesInteractorProtocol) {
         self.view = view
         self.router = router
         self.interactor = interactor
@@ -59,15 +61,19 @@ class MoviePresenterImplementation: MoviePresenter {
             if let error = error{
                 self.view?.showEror(error: error.localizedDescription)
             }else{
-                guard let data = data else {return}
-                self.page += 1
-                self.movieModel = data.data?.movies ?? []
-                
-                if !self.movieModel.isEmpty{
-                    self.view?.fetchingDataSuccess()
+                if let data = data{
+                    self.page += 1
+                    self.movieModel = data.data?.movies ?? []
+                    
+                    if !self.movieModel.isEmpty{
+                        self.view?.fetchingDataSuccess()
+                    }else{
+                        self.view?.NoData()
+                    }
                 }else{
                     self.view?.NoData()
                 }
+                
             }
         }
         
@@ -119,7 +125,7 @@ class MoviePresenterImplementation: MoviePresenter {
     
     func didSelect(index: Int) {
         let movie = self.movieModel[index]
-        router.goToMovieDetails(movieModel: movie)
+        router?.goToMovieDetails(movieModel: movie)
     }
     
     func configure(cell: MovieCellView, forRow row: Int) {
