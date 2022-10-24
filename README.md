@@ -1,6 +1,6 @@
 # MoviesApp
 
-I used the design pattern Viper to do this task.
+I used the Viper architecture pattern and the Unit Testing.
 
 VIPER is an architectural pattern like MVC or MVVM, but it separates the code further by single responsibility. Apple-style MVC motivates developers to put all logic into a UIViewController subclass. VIPER, like MVVM before it, seeks to fix this problem.
 
